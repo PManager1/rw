@@ -93,23 +93,67 @@
   <![endif]-->
 
     <section class="wrapper">
-        <!--     <header class="contextual">
-            <div class="logo"></div>
-        </header>
-        <section class="content ">
 
-            <div class="signup-wrapper"> -->
-        <!--   <section class="signup-top ">
-    <article class="promo-signup-value-prop">
-      <div class="col-md-2 col-xs-3">
-        <div class="uber-badge block-center"></div>
-      </div>
-      <div class="col-md-10 col-xs-9">
-        <p>The Uber app connects you with a driver at the tap of a button</p>
-      </div>
-    </article>
-  </section> -->
         <!-- Navigation -->
+
+
+
+
+        <script src="https://checkout.stripe.com/checkout.js"></script>
+
+
+
+
+
+				<script src="js/checkoutButton.js" type="text/javascript" charset="utf-8"></script>
+
+
+       
+
+
+
+
+
+
+
+
+        <!-- button for checkout  -->
+        <section>
+            <div class="page-title">
+                <button id="customButton" class="btn btn-primary js-submit">one click Purchase</button>
+
+                <!-- <button id="customButton">Purchase</button> -->
+            </div>
+        </section>
+
+
+
+ <script>
+        var handler = StripeCheckout.configure({
+            key: 'pk_test_lj9eYRe5nlffycMFiDZmGxKF',
+            image: '/img/new/32.jpg',            
+            token: function(token) {
+                // Use the token to create the charge with a server-side script.
+                // You can access the token ID with `token.id`
+            }
+        });
+
+        document.getElementById('customButton').addEventListener('click', function(e) {
+            // Open Checkout with further options
+            handler.open({
+                name: 'Rush-n-Wash',
+                description: '1 Car Detail ($20.00)',
+                amount: 2000
+            });
+            e.preventDefault();
+        });
+        </script>
+
+
+
+
+        <!-- end button for checkout  -->
+
 
         <section>
             <div class="page-title">
